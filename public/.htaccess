@@ -1,0 +1,46 @@
+#order deny,allow
+#deny from all
+#allow from 199.83.128.0/21
+#allow from 198.143.32.0/19
+#allow from 149.126.72.0/21
+#allow from 103.28.248.0/22
+#allow from 185.11.124.0/22
+#allow from 45.64.64.0/22
+#allow from 192.230.64.0/18
+#allow from 107.154.0.0/16
+#allow from 45.60.0.0/16
+#allow from 45.223.0.0/16
+#allow from 2a02:e980::/29
+#Options -Indexes
+#Header append X-FRAME-OPTIONS "SAMEORIGIN"
+
+#<IfModule mod_headers.c>
+#  Header set X-XSS-Protection "1; mode=block"
+#  Header set X-Content-Type-Options nosniff
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	RewriteBase /
+
+	# redireciona HTTPS
+	#RewriteCond %{HTTPS} !=on
+	#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	# Force to exclude the trailing slash
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} (.*)/$
+	RewriteRule ^(.+)/$ $1 [R=307,L]
+
+	# Restrict php files direct access
+	RewriteCond %{THE_REQUEST} ^.+?\ [^?]+\.php[?\ ]
+	RewriteRule \.php$ - [F]
+
+	# Allow any files or directories that exist to be displayed directly
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+
+</IfModule>
