@@ -1,6 +1,11 @@
 # test-frontend-api
 
-Este é uma API simples para possibilitar o desenvolvimento de frontend. Trata-se de um CRUD simples, com uma tabela de tipos de Pet, que deverão ser exibidos em um select no formulário principal dos Pets.
+Este é uma API simples para possibilitar o desenvolvimento de frontend. Trata-se de um CRUD simples de cadastro de Pets. Há uma tabela de tipos de Pet, que deverão ser exibidos em um select no formulário principal dos Pets.
+
+Após clonar este repositório, entre na pasta do projeto e digite:
+
+docker-compose up -d --build
+docker-compose exec web composer install
 
 Abaixo, a documentação da comunicação com a API. Se preferir, utilize o Postman: https://documenter.getpostman.com/view/695853/TzCHApzc
 
