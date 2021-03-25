@@ -2,6 +2,8 @@
 
 Este é uma API simples para possibilitar o desenvolvimento de frontend. Trata-se de um CRUD simples, com uma tabela de tipos de Pet, que deverão ser exibidos em um select no formulário principal dos Pets.
 
+Abaixo, a documentação da comunicação com a API. Se preferir, utilize o Postman: https://documenter.getpostman.com/view/695853/TzCHApzc
+
 # Pet Type Collection
 ## Create Pet Type [POST]
 ### Request: http://localhost:8080/pets-type
