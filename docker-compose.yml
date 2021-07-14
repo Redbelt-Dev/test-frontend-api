@@ -22,5 +22,3 @@ services:
           MYSQL_DATABASE: redbelts_test
         ports:
           - "${MYSQL_PORT_EXTERNAL}:3306"
-        volumes:
-          - ./.docker/db/setup.sql
