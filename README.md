@@ -5,6 +5,7 @@ Este é uma API simples para possibilitar o desenvolvimento de frontend. Trata-s
 Após clonar este repositório, entre na pasta do projeto e digite:
 
 docker-compose up -d --build
+
 docker-compose exec web composer install
 
 Abaixo, a documentação da comunicação com a API. Se preferir, utilize o Postman: https://documenter.getpostman.com/view/695853/TzCHApzc
